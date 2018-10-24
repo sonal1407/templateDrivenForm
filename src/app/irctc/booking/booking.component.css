@@ -1,0 +1,11 @@
+.form_{
+    border: 2px solid;
+    background: aliceblue;
+    padding: 11%;
+    margin: 2%;
+}
+.control-label .required, .form-group .required {
+    color: #e02222;
+    font-size: 12px;
+    padding-left: 2px;
+}

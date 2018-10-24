@@ -3,16 +3,21 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { IrctcModule } from './irctc/irctc.module';
+import { FormService } from './core/form.service';
+
 
 
 @NgModule({
   declarations: [
     AppComponent
+  
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    IrctcModule
   ],
-  providers: [],
+  providers: [FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

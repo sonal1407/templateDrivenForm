@@ -1,0 +1,63 @@
+<form class="form_" (ngSubmit)="onSubmit()" #myform="ngForm">
+  <div [hidden]="submitedData">
+    <div class="form-group">
+      <label>From Station
+        <input list="station" [(ngModel)]="formsDetail.fromStation" id="fromStation" #fromStation="ngModel" name="fromStation"
+          class="form-control" required />
+      </label>
+      <datalist id="station">
+        <option value="Valsad">
+        <option value="Vapi">
+        <option value="Anand">
+      </datalist>
+
+    </div>
+    <div class="form-group">
+      <label>To Station
+        <input list="toStation" [(ngModel)]="formsDetail.toStation" id="toStation" #toStation="ngModel" name="toStation"
+          class="form-control" required />
+      </label>
+      <datalist id="toStation">
+        <option value="Valsad">
+        <option value="Vapi">
+        <option value="Anand">
+      </datalist>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>Date </label>
+
+
+
+      <input type="date" [(ngModel)]="formsDetail.date" id="date" #date="ngModel" name="date" class="form-control"
+        required>
+    </div>
+    <div class="form-group">
+      <label>Train No
+
+      </label>
+      <input type="text" [(ngModel)]="formsDetail.trainNo" id="trainNo" #trainNo="ngModel" name="trainNo" class="form-control"
+        required>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>No Of tickets
+
+      </label>
+      <input type="text" [(ngModel)]="formsDetail.noOfTickets" id="noOfTickets" #noOfTickets="ngModel" name="noOfTickets"
+        class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Class
+        <input list="class" [(ngModel)]="formsDetail.typeOfTicket" id="typeOfTicket" #typeOfTicket="ngModel" name="typeOfTicket"
+          class="form-control" required />
+      </label>
+      <datalist id="class">
+        <option value="Ac">
+        <option value="Sl">
+      </datalist>
+    </div>
+    <br>
+    <input type="submit" value="Submit" [disabled]="!myform.form.valid">
+  </div>
+</form>
