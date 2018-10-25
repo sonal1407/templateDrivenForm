@@ -1,79 +1,73 @@
 <form class="form_" (ngSubmit)="onSubmit()" #myform="ngForm">
+  <h1>Template Driven Form</h1>
+  <hr>
   <div [hidden]="submitedData">
-    <div class="form-group">
-      <label>From Station
-        <input list="station" [(ngModel)]="formsDetail.fromStation" id="fromStation" #fromStation="ngModel" name="fromStation" class="form-control"
-          required />
-        <div [hidden]="fromStation.valid || fromStation.pristine" class="alert alert-danger">
-          fromStation is required
-        </div>
-      </label>
-      <datalist id="station">
-        <option value="Valsad">
-          <option value="Vapi">
-            <option value="Anand">
-      </datalist>
+    <label>From Station
+      <input list="station" [(ngModel)]="formsDetail.fromStation" id="fromStation" #fromStation="ngModel" name="fromStation"
+        class="form-control" required />
+      <div [hidden]="fromStation.valid || fromStation.pristine" class="alert alert-danger">
+        fromStation is required
+      </div>
+    </label>
+    <div *ngIf="fromStation.errors?.required" class="alert alert-danger">
+        fromStation is required
+      </div>
+    <datalist id="station">
+      <option value="Valsad">
+      <option value="Vapi">
+      <option value="Anand">
+    </datalist>
 
+
+    <label>To Station
+      <input list="ToStation" [(ngModel)]="formsDetail.toStation" id="toStation" #toStation="ngModel" name="toStation"
+        class="form-control" required />
+        <div *ngIf="ToStation.errors?.required" class="alert alert-danger">
+            ToStation is required
+          </div>
+      <div [hidden]="toStation.valid || toStation.pristine" class="alert alert-danger">
+        toStation is required
+      </div>
+    </label>
+    <datalist id="ToStation">
+      <option value="Valsad">
+      <option value="Vapi">
+      <option value="Anand">
+    </datalist>
+
+    <br>
+
+    <label>Date </label>
+    <input type="date" [(ngModel)]="formsDetail.date" id="date" #date="ngModel" name="date" class="form-control"required>
+    
+    <label>Train No  </label>
+    <input type="text" [(ngModel)]="formsDetail.trainNo" No="5" id="trainNo" #trainNo="ngModel" name="trainNo" class="form-control"
+      required minlength="5">
+    <div *ngIf="trainNo.errors?.minlength">
+      Minimum required number is 5.
     </div>
-    <div class="form-group">
-      <label>To Station
-        <input list="ToStation" [(ngModel)]="formsDetail.toStation" id="toStation" #toStation="ngModel" name="toStation" class="form-control"
-          required />
-        <div [hidden]="toStation.valid || toStation.pristine" class="alert alert-danger">
-          toStation is required
-        </div>
-      </label>
-      <datalist id="ToStation">
-        <option value="Valsad">
-          <option value="Vapi">
-            <option value="Anand">
-      </datalist>
+    <div *ngIf="trainNo.errors?.required" class="alert alert-danger">
+      trainNo is required
     </div>
     <br>
-    <div class="form-group">
-      <label>Date </label>
-      <input type="date" [(ngModel)]="formsDetail.date" id="date" #date="ngModel" name="date" class="form-control" required>
-      <div [hidden]="date.valid || date.pristine" class="alert alert-danger">
-        date is required
+    <label>No Of tickets</label>
+    <input type="text" [(ngModel)]="formsDetail.noOfTickets" id="noOfTickets" #noOfTickets="ngModel" name="noOfTickets"
+      class="form-control" required>
+    
+    <label>Class
+      <input list="class" [(ngModel)]="formsDetail.typeOfTicket" id="typeOfTicket" #typeOfTicket="ngModel" name="typeOfTicket"
+        class="form-control" required />
+        <div *ngIf="typeOfTicket.errors?.required" class="alert alert-danger">
+            typeOfTicket is required
+          </div>
+      <div [hidden]="typeOfTicket.valid || typeOfTicket.pristine" class="alert alert-danger">
+        typeOfTicket is required
       </div>
-    </div>
-    <div class="form-group">
-      <label>Train No
-      </label>
-      <input type="text" [(ngModel)]="formsDetail.trainNo" No="5" id="trainNo" #trainNo="ngModel" name="trainNo" class="form-control"
-        required>
-        <div *ngIf="trainNo.errors?.No"> 
-          Minimum required number is 15.
-     </div>	
-      <div [hidden]="trainNo.valid || trainNo.pristine" class="alert alert-danger">
-        trainNo is required
-      </div>
-
-    </div>
-    <br>
-    <div class="form-group">
-      <label>No Of tickets
-
-      </label>
-      <input type="text" [(ngModel)]="formsDetail.noOfTickets" id="noOfTickets" #noOfTickets="ngModel" name="noOfTickets" class="form-control"
-        required>
-      <div [hidden]="noOfTickets.valid || noOfTickets.pristine" class="alert alert-danger">
-        noOfTickets is required
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Class
-        <input list="class" [(ngModel)]="formsDetail.typeOfTicket" id="typeOfTicket" #typeOfTicket="ngModel" name="typeOfTicket"
-          class="form-control" required />
-        <div [hidden]="typeOfTicket.valid || typeOfTicket.pristine" class="alert alert-danger">
-          typeOfTicket is required
-        </div>
-      </label>
-      <datalist id="class">
-        <option value="Ac">
-          <option value="Sl">
-      </datalist>
-    </div>
+    </label>
+    <datalist id="class">
+      <option value="Ac">
+      <option value="Sl">
+    </datalist>
     <br>
     <input type="submit" value="Submit" [disabled]="!myform.form.valid">
   </div>

@@ -4,11 +4,7 @@ import { FormData } from "../form-data.model";
 @Injectable()
 export class FormService {
   private formData: FormData = new FormData();
-  /**
-   * store the data of the type and etc
-   *
-   */
-  // public listOfData: myData[];
+
   constructor() {}
 
   getDetails(): myData {
